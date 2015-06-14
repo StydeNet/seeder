@@ -5,7 +5,7 @@ https://styde.net/cursos/crea-tu-primera-aplicacion-con-laravel-5/
 
 To install through Composer:
 
-1. Add the follwing instruction to the "require" object in your composer.json: `"styde/seeder": "dev-master"` or execute `composer require styde/seeder` on your console.
+1. Add the following instruction to the "require" object in your composer.json: `"styde/seeder": "dev-master"` or execute `composer require styde/seeder` on your console.
 
 2. Execute `composer update` in the console
 
