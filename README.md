@@ -3,9 +3,9 @@ This Laravel's component is part of the code I created for the course (in Spanis
 
 https://styde.net/cursos/crea-tu-primera-aplicacion-con-laravel-5/
 
-To install through *composer*:
+To install through Composer:
 
-1. Add the follwing instruction to the "require" object in your composer.json: `"styde/seeder": "dev-master"`
+1. Add the following instruction to the "require" object in your composer.json: `"styde/seeder": "dev-master"` or execute `composer require styde/seeder` on your console.
 
 2. Execute `composer update` in the console
 
@@ -30,8 +30,8 @@ class DatabaseSeeder extends BaseSeeder
 }
 ```
 
-Specify the tables you want to $truncate (order does not matter since the foreign key check will be disabled)
-Then add the $seeders, by default it will autocomplete the suffix "TableSeeder" so no need to add it
+Specify the tables you want to `$truncate` (order does not matter since the foreign key check will be disabled)
+Then add the `$seeders`, by default it will autocomplete the suffix `"TableSeeder"` so no need to add it
 
 Then start creating your seeders, for example:
 
@@ -63,6 +63,6 @@ class UserTableSeeder extends Seeder
 }
 ```
 
-Once you run the seed command in Laravel it will create 50 users with random data
+Once you run the seed command in Laravel it will create 50 users with random data.
 
 I will be adding more documentation later.
