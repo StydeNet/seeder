@@ -9,7 +9,13 @@ use Illuminate\Database\Seeder as IlluminateSeeder;
 
 abstract class Seeder extends IlluminateSeeder
 {
+    protected $faker;
     protected $total = 50;
+
+    public function __construct(Faker $factory)
+    {
+        $this->faker = $factory->create();
+    }
 
     public function run()
     {
@@ -46,7 +52,7 @@ abstract class Seeder extends IlluminateSeeder
 
     public function make(array $customValues = array())
     {
-        $values = $this->getDummyData(Faker::create(), $customValues);
+        $values = $this->getDummyData($this->faker, $customValues);
         $values = array_merge($values, $customValues);
 
         return $this->getModel()->newInstance($values);
