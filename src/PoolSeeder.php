@@ -21,6 +21,16 @@ class PoolSeeder {
 
     public static function add($entity)
     {
+        /**
+         * Don't cache if there are active DB transactions, because they are
+         * used for testing purposes and this could cause potential issues,
+         * i.e.: we cache a record and then the transaction is rolled back.
+         */
+        if (DB::transactionLevel() > 0) {
+            return $entity;
+        }
+
+        
         $reflection = new \ReflectionClass($entity);
         $class = $reflection->getShortName();
 
