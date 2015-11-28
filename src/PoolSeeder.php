@@ -11,7 +11,9 @@ class PoolSeeder {
     public static function random($model)
     {
         if (! static::collectionExist($model)) {
-            throw new \Exception("The $model collection does not exist");
+            // If no objects are registered in the given
+            // collection attempt to create a new one
+            return seed($model);
         }
 
         return static::$pool[$model]->random();
