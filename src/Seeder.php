@@ -5,6 +5,7 @@ namespace Styde\Seeder;
 use Faker\Factory as Faker;
 use Faker\Generator;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Seeder as IlluminateSeeder;
 
 abstract class Seeder extends IlluminateSeeder
@@ -55,13 +56,19 @@ abstract class Seeder extends IlluminateSeeder
         $values = $this->getDummyData($this->faker, $customValues);
         $values = array_merge($values, $customValues);
 
-        return $this->getModel()->newInstance($values);
+        Eloquent::unguard();
+
+        $model = $this->getModel()->newInstance($values);
+
+        Eloquent::reguard();
+
+        return $model;
     }
 
     public function create(array $customValues = array())
     {
         $model = $this->make($customValues);
-        $model->save($customValues);
+        $model->save();
         return PoolSeeder::add($model);
     }
 
