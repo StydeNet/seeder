@@ -20,6 +20,7 @@
   "autoload": {
     "psr-4": {
       "Styde\\Seeder\\": "src/"
-    }
+    },
+    "files": ["src/helpers.php"]
   }
 }
