@@ -2,7 +2,7 @@
 
 use Faker\Generator;
 use Styde\Seeder\Seeder;
-use DummyRootNamespace\Entities\DummyClass;
+use DummyRootNamespaceEntities\DummyClass;
 
 class DummyClassTableSeeder extends Seeder
 {
