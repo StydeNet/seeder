@@ -14,7 +14,9 @@ class SeederServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->commands(SeederMakeCommand::class);
+        $this->app->singleton('command.seeder.make', function ($app) {
+            return new SeederMakeCommand($app['files'], $app['composer']);
+        });
     }
 
 }
