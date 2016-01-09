@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 class SeederServiceProvider extends ServiceProvider
 {
 
+    protected $defer = true;
+
     /**
      * Register the service provider.
      *
@@ -17,6 +19,16 @@ class SeederServiceProvider extends ServiceProvider
         $this->app->singleton('command.seeder.make', function ($app) {
             return new SeederMakeCommand($app['files'], $app['composer']);
         });
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['command.seeder.make'];
     }
 
 }
