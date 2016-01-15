@@ -2,15 +2,14 @@
 
 use Faker\Generator;
 use Styde\Seeder\Seeder;
-use DummyRootNamespaceEntities\DummyClass;
 
-class DummyClassTableSeeder extends Seeder
+class DummyClass extends Seeder
 {
     protected $total = 50;
 
     public function getModel()
     {
-        return new DummyClass();
+        return;
     }
 
     public function getDummyData(Generator $faker, array $custom = [])
