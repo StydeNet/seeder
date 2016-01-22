@@ -16,8 +16,6 @@ abstract class BaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
         $this->truncateTables($this->truncate);
         $this->seed($this->seeders);
     }
@@ -25,6 +23,7 @@ abstract class BaseSeeder extends Seeder
     protected function seed($seeders)
     {
         foreach ($this->seeders as $seeder) {
+            Model::unguard();
             $this->call(Helper::buildSeederName($seeder));
         }
     }
