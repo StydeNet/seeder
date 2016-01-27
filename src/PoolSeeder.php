@@ -1,11 +1,11 @@
 <?php
-
 namespace Styde\Seeder;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
-class PoolSeeder {
+class PoolSeeder
+{
 
     protected static $pool;
 
@@ -57,5 +57,4 @@ class PoolSeeder {
     {
         return isset(static::$pool[$class]);
     }
-
 }

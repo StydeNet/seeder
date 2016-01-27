@@ -1,5 +1,4 @@
 <?php
-
 namespace Styde\Seeder;
 
 use Illuminate\Database\Seeder;
@@ -42,7 +41,6 @@ abstract class BaseSeeder extends Seeder
     protected function checkForeignKeys($check)
     {
         $check = $check ? '1' : '0';
-        DB::statement("SET FOREIGN_KEY_CHECKS = $check;");
+        DB::statement('SET FOREIGN_KEY_CHECKS = '.$check.';');
     }
-
 }
