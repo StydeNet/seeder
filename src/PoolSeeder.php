@@ -1,5 +1,4 @@
 <?php
-
 namespace Styde\Seeder;
 
 use Illuminate\Database\Eloquent\Collection;
