@@ -1,5 +1,4 @@
 <?php
-
 namespace Styde\Seeder;
 
 use Illuminate\Support\ServiceProvider;
@@ -16,5 +15,4 @@ class SeederServiceProvider extends ServiceProvider
     {
         $this->commands(SeederMakeCommand::class);
     }
-
 }

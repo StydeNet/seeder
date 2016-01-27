@@ -1,5 +1,4 @@
 <?php
-
 namespace Styde\Seeder;
 
 use Faker\Factory as Faker;
@@ -81,5 +80,4 @@ abstract class Seeder extends IlluminateSeeder
     {
         return PoolSeeder::random($model);
     }
-
 }

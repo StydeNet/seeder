@@ -1,5 +1,4 @@
 <?php
-
 namespace Styde\Seeder;
 
 class Helper
@@ -40,5 +39,4 @@ class Helper
             static::buildSeeder($seeder)->create($customValues)
             : static::buildSeeder($seeder)->createMultiple($total, $customValues);
     }
-
 }

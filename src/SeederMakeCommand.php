@@ -1,5 +1,4 @@
 <?php
-
 namespace Styde\Seeder;
 
 class SeederMakeCommand extends \Illuminate\Database\Console\Seeds\SeederMakeCommand
@@ -31,5 +30,4 @@ class SeederMakeCommand extends \Illuminate\Database\Console\Seeds\SeederMakeCom
     {
         return Helper::$prefix.$name.Helper::$suffix;
     }
-
 }
