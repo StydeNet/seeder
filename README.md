@@ -1,16 +1,31 @@
-# Styde\Seeder
-This Laravel's component is part of the code I created for the course (in Spanish):
+# Styde Seeder
 
-https://styde.net/cursos/crea-tu-primera-aplicacion-con-laravel-5/
+This package for [Laravel](https://laravel.com/) allow seeding your database with faker data. It is an alternative to Model Factories of Laravel 5.1. With this package you can seed a model of your application and its related models too, using the package [Faker](https://github.com/fzaninotto/Faker).
 
-To install through Composer:
+## Installation
 
-1. Add the following instruction to the "require" object in your composer.json: `"styde/seeder": "dev-master"` or execute `composer require styde/seeder` on your console.
+To install through [Composer](https://getcomposer.org/):
 
-2. Execute `composer update` in the console
+1. Add the following instruction to the "require" object in your composer.json:
+```
+"styde/seeder": "^1.0"
+```
+or simply execute on your console:
+```
+composer require styde/seeder
+```
+Then run `composer update`.
 
-3. Then add the following to your DatabaseSeeder.php (`database/seeds/DatabaseSeeder.php`)
+2. After **Styde Seeder** is installed, you need to add the service provider to the `providers` array in `config/app.php`
+```
+'providers' => [
+    // ...
+    Styde\Seeder\SeederServiceProvider::class,
+    // ...
+],
+```
 
+3. Then add the following to your `database/seeds/DatabaseSeeder.php`:
 ```
 <?php
 
@@ -18,7 +33,6 @@ use Styde\Seeder\BaseSeeder;
 
 class DatabaseSeeder extends BaseSeeder
 {
-
     protected $truncate = array(
         //'users',
     );
@@ -26,15 +40,24 @@ class DatabaseSeeder extends BaseSeeder
     protected $seeders = array(
         //'User',
     );
-
 }
 ```
+Specify the tables of database you want to `$truncate` (order does not matter since the foreign key check will be disabled) Then add the `$seeders`, by default it will autocomplete the suffix `"TableSeeder"` so no need to add it.
 
-Specify the tables you want to `$truncate` (order does not matter since the foreign key check will be disabled)
-Then add the `$seeders`, by default it will autocomplete the suffix `"TableSeeder"` so no need to add it
+## Usage
 
-Then start creating your seeders, for example:
+To create a new seeder file you can run:
+```
+php artisan styde:seeder NameOfSeeder
+```
+And a new file called `NameOfSeederTableSeeder.php` will be created at `database/seeds` directory.
 
+Then complete your seeder with new instance of the Model in the `getModel()` method and its attributes in the `getDummyData` method. You can use [Faker](https://github.com/fzaninotto/Faker) for generates fake data, for example:
+
+```
+php artisan styde:seeder User
+```
+Completing the Model in getModel() and some attributes with faker data:
 ```
 <?php
 
@@ -59,10 +82,11 @@ class UserTableSeeder extends Seeder
             'password'  => bcrypt('secret'),
         ];
     }
-
 }
 ```
 
-Once you run the seed command in Laravel it will create 50 users with random data.
+Once you run the seed command in Laravel `php artisan db:seed` it will create 50 users with random data by default.
 
-I will be adding more documentation later.
+## About
+
+Styde Seeder was created by [Duilio Palacios](https://twitter.com/sileence) as part of the code for the course [Crea tu primera aplicación con Laravel 5](https://styde.net/cursos/crea-tu-primera-aplicacion-con-laravel-5/) (in Spanish)
