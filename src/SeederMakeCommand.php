@@ -24,6 +24,7 @@ class SeederMakeCommand extends \Illuminate\Database\Console\Seeds\SeederMakeCom
      * Parse the name and format according to the root namespace.
      *
      * @param  string  $name
+     *
      * @return string
      */
     protected function parseName($name)
