@@ -84,6 +84,36 @@ class UserTableSeeder extends Seeder
     }
 }
 ```
+### Helpers
+
+Puedes usar también estos dos helpers cuando estás trabajando con pruebas (tests) o `php artisan tinker`:
+```
+/**
+     * Create one instance or a collection of the given model and persist them to the database.
+     *
+     * @param  string  $seeder
+     * @param  integer $total
+     * @param  array   $customValues
+     *
+     * @return mixed
+     */
+    function seed($seeder, $total = 1, array $customValues = array())
+```
+Ejemplo para crear 5 usuarios: `seed('User', 5)` o para crear usuarios con datos específicos: `seed('User', ['name' => 'John', 'email' => 'john@example.com'])`.
+
+```
+/**
+     * Create one instance or a collection of a given model.
+     *
+     * @param  string  $seeder
+     * @param  integer $total
+     * @param  array   $customValues
+     *
+     * @return mixed
+     */
+    function model($seeder, $total = 1, array $customValues = array())
+```
+Con este helper solo creas una instancia o colección pero no serán persistidos en la base de datos.
 
 Una vez ejecutes el comando de Laravel `php artisan db:seed` se crearán por defecto 50 usuarios en la base de datos.
 

@@ -87,6 +87,37 @@ class UserTableSeeder extends Seeder
 
 Once you run the seed command in Laravel `php artisan db:seed` it will create 50 users with random data by default.
 
+### Helpers
+
+Also, you can use these two helpers when you are working with tests or `php artisan tinker`:
+```
+/**
+     * Create one instance or a collection of the given model and persist them to the database.
+     *
+     * @param  string  $seeder
+     * @param  integer $total
+     * @param  array   $customValues
+     *
+     * @return mixed
+     */
+    function seed($seeder, $total = 1, array $customValues = array())
+```
+For example to create 5 users `seed('User', 5)` or to create one user with specific data `seed('User', ['name' => 'John', 'email' => 'john@example.com'])`.
+
+```
+/**
+     * Create one instance or a collection of a given model.
+     *
+     * @param  string  $seeder
+     * @param  integer $total
+     * @param  array   $customValues
+     *
+     * @return mixed
+     */
+    function model($seeder, $total = 1, array $customValues = array())
+```
+With this helper you only can create an instance or collection, but will not be persisted to the database.
+
 ## About
 
 Styde Seeder was created by [Duilio Palacios](https://twitter.com/sileence) as part of the code for the course [Crea tu primera aplicación con Laravel 5](https://styde.net/cursos/crea-tu-primera-aplicacion-con-laravel-5/) (in Spanish)

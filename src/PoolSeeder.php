@@ -7,8 +7,20 @@ use Illuminate\Support\Facades\DB;
 class PoolSeeder
 {
 
+    /**
+     * A Eloquent collection of registered models.
+     *
+     * @var array
+     */
     protected static $pool;
 
+    /**
+     * Get an instance of given model.
+     *
+     * @param  string $model
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
     public static function random($model)
     {
         if (! static::collectionExist($model)) {
@@ -20,6 +32,13 @@ class PoolSeeder
         return static::$pool[$model]->random();
     }
 
+    /**
+     * Save a given model into a pool.
+     *
+     * @param string $entity
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
     public static function add($entity)
     {
         /**
@@ -41,7 +60,10 @@ class PoolSeeder
     }
 
     /**
+     * Create a collection.
+     *
      * @param $class
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     protected static function makeCollection($class)
@@ -53,6 +75,13 @@ class PoolSeeder
         return static::$pool[$class];
     }
 
+    /**
+     * Check if the collection exist.
+     *
+     * @param $class
+     *
+     * @return bool
+     */
     protected static function collectionExist($class)
     {
         return isset(static::$pool[$class]);
